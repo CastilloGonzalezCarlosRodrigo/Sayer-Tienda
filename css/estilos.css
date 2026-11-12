@@ -1,0 +1,493 @@
+/* ==========================================
+   ESTILOS GENERALES (Tema: Madera y Pintura)
+   ========================================== */
+:root {
+    --madera-oscura: #3E2723;   /* Color principal - Caoba / Nogal */
+    --madera-media: #5D4037;    /* Color secundario */
+    --madera-clara: #F5F5DC;    /* Fondo de contenedores - Beige / Pino */
+    --pintura-alerta: #D32F2F;  /* Rojo para alertas de stock bajo */
+    --pintura-ok: #388E3C;      /* Verde para stock óptimo */
+    --acero-gris: #ECEFF1;      /* Fondo general de la página */
+    --texto-oscuro: #212121;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--acero-gris);
+    color: var(--texto-oscuro);
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados con aspecto de veta/madera sólida */
+header {
+    background: linear-gradient(135deg, var(--madera-oscura), var(--madera-media));
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom: 5px solid #FFB300; /* Línea amarilla simulando cinta de pintor o marca */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+header p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    color: #D7CCC8;
+}
+
+header a {
+    color: #FFB300;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* ==========================================
+   PANTALLA DE LOGIN (index.php)
+   ========================================== */
+body:has(.login-container) {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1200') no-repeat center center fixed;
+    background-size: cover; /* Fondo que simula texturas de taller o madera */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 400px;
+    border-top: 8px solid var(--madera-oscura);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: var(--madera-oscura);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+/* ==========================================
+   FORMULARIOS Y CAMPOS
+   ========================================== */
+form {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #E0E0E0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--madera-media);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #BDC3C7;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--madera-media);
+    outline: none;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+    background-color: var(--acero-gris);
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Botones con efecto "Barnizado" brillante al pasar el cursor */
+button, .btn-venta {
+    width: 100%;
+    background-color: var(--madera-oscura);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    text-transform: uppercase;
+}
+
+button:hover, .btn-venta:hover {
+    background-color: var(--madera-media);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   ESTILOS PARA EL PUNTO DE VENTA INTERACTIVO
+   ========================================== */
+.pos-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dividimos la pantalla en 2 columnas */
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .pos-container { grid-template-columns: 1fr; } /* Vertical en pantallas chicas */
+}
+
+/* Tarjetas contenedoras */
+.pos-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--madera-media);
+    box-sizing: border-box;
+}
+
+.pos-card h3 {
+    margin-top: 0;
+    color: var(--madera-oscura);
+    border-bottom: 2px solid var(--acero-gris);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Insignia de stock dinámico */
+.stock-badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+.stock-ok { background-color: #E8F5E9; color: #2E7D32; }
+.stock-alert { background-color: #FFEBEE; color: #C62828; }
+
+/* Sección oculta de facturación */
+.seccion-factura-dinamica {
+    display: none; /* Controlado por JS */
+    background: #FAFAFA;
+    padding: 15px;
+    border-left: 4px solid #FFB300;
+    margin-top: 15px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Botón secundario para añadir al carrito */
+.btn-añadir {
+    background-color: #FFB300;
+    color: #3E2723;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.btn-añadir:hover { background-color: #FFA000; }
+
+/* Tabla del Carrito */
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabla-carrito th, .tabla-carrito td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #E0E0E0;
+}
+.tabla-carrito th { background: var(--madera-oscura); color: white; font-size: 0.9rem; }
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #C62828;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.total-contenedor {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--madera-oscura);
+    border-top: 2px dashed #E0E0E0;
+    padding-top: 15px;
+}
+
+/* ==========================================
+   CAJAS DE ALERTAS Y NOTIFICACIONES
+   ========================================== */
+.alertas-section h2 {
+    color: var(--madera-oscura);
+    border-bottom: 2px solid var(--madera-media);
+    padding-bottom: 8px;
+}
+
+.alerta-item {
+    background-color: #FFEBEE;
+    color: #C62828;
+    border-left: 6px solid var(--pintura-alerta);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.alerta-item span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ok-msg {
+    background-color: #E8F5E9;
+    color: var(--pintura-ok);
+    padding: 15px;
+    border-left: 6px solid var(--pintura-ok);
+    border-radius: 4px;
+}
+
+.error-msg {
+    background-color: #FFEBEE;
+    color: #C62828;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Caja dinámica de factura (Se activa con JS) */
+.factura-box {
+    background-color: #FFF8E1; /* Fondo amarillento claro */
+    border-left: 5px solid #FFB300;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.factura-box h3 {
+    margin-top: 0;
+    color: #B78103;
+    font-size: 1.1rem;
+}
+
+/* Animación fluida cuando JS muestra la factura */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   DISEÑO DE DASHBOARD CON MENÚ LATERAL
+   ========================================== */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--acero-gris);
+}
+
+/* Menú Lateral Izquierdo */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, var(--madera-oscura), var(--madera-media));
+    color: #ffffff;
+    padding-top: 20px;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.15);
+    border-right: 4px solid #FFB300;
+    z-index: 100;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 10px 20px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #FFB300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: #D7CCC8;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+/* Iconos simulados por texto/emoji o librerías */
+.sidebar-menu li a .icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-menu li a:hover, 
+.sidebar-menu li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-left-color: #FFB300;
+}
+
+/* Contenedor de Contenido Principal (Desplazado a la derecha) */
+.main-content {
+    margin-left: 260px; /* Ancho de la barra lateral */
+    padding: 40px;
+    box-sizing: border-box;
+    width: calc(100% - 260px); /* Forzar cálculo del ancho real */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Secciones individuales controladas por ID */
+.dashboard-section {
+    display: none;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--madera-media);
+    
+    /* REMOVER CUALQUIER LÍMITE ANTERIOR */
+    width: 100% !important; 
+    max-width: 100% !important; 
+    box-sizing: border-box;
+}
+
+/* Clase activa que usará JavaScript para mostrar la sección seleccionada */
+.dashboard-section.active-tab {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Ajustar el contenedor de filtros para que no encoja los selectores */
+.filtro-box {
+    background: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hacer que el formulario interno abarque todo el ancho de la tarjeta */
+.filtro-box form {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: flex-end;
+}
+
+/* Darle buen tamaño a los grupos de inputs */
+.filtro-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Asegurar que las tablas e inputs llenen el nuevo espacio expandido */
+.tabla-reporte {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+/* Animación de transición fluida */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-section h2 {
+    margin-top: 0;
+    color: var(--madera-oscura);
+    border-bottom: 2px solid var(--acero-gris);
+    padding-bottom: 10px;
+}
+
+/* Ajuste de Gráfica */
+.canvas-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+}
